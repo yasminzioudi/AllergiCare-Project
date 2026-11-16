@@ -1,0 +1,374 @@
+<?php
+include __DIR__ . '/../../Controller/complaintsController.php';
+require_once __DIR__ . '/../../Config.php';
+
+$id = 1; // Replace this with the actual ID you want to fetch
+
+$crudComplaint = new crudComplaint();
+$liste = $crudComplaint->showComplaint($id);
+
+?>
+<!DOCTYPE html>
+<html lang="zxx">
+
+<!-- Mirrored from demo.dashboardpack.com/hospital-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Nov 2023 13:38:14 GMT -->
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>AllergiCare</title>
+<link rel="icon" href="img/hh.png" type="image/png">
+
+<link rel="stylesheet" href="css/bootstrap1.min.css" />
+
+<link rel="stylesheet" href="vendors/themefy_icon/themify-icons.css" />
+
+<link rel="stylesheet" href="vendors/swiper_slider/css/swiper.min.css" />
+
+<link rel="stylesheet" href="vendors/select2/css/select2.min.css" />
+
+<link rel="stylesheet" href="vendors/niceselect/css/nice-select.css" />
+
+<link rel="stylesheet" href="vendors/owl_carousel/css/owl.carousel.css" />
+
+<link rel="stylesheet" href="vendors/gijgo/gijgo.min.css" />
+
+<link rel="stylesheet" href="vendors/font_awesome/css/all.min.css" />
+<link rel="stylesheet" href="vendors/tagsinput/tagsinput.css" />
+
+<link rel="stylesheet" href="vendors/datatable/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="vendors/datatable/css/responsive.dataTables.min.css" />
+<link rel="stylesheet" href="vendors/datatable/css/buttons.dataTables.min.css" />
+
+<link rel="stylesheet" href="vendors/text_editor/summernote-bs4.css" />
+
+<link rel="stylesheet" href="vendors/morris/morris.css">
+
+<link rel="stylesheet" href="vendors/material_icon/material-icons.css" />
+
+<link rel="stylesheet" href="css/metisMenu.css">
+
+<link rel="stylesheet" href="css/style1.css" />
+<link rel="stylesheet" href="css/colors/default.css" id="colorSkinCSS">
+</head>
+<body class="crm_body_bg">
+
+
+
+<nav class="sidebar">
+<div class="logo d-flex justify-content-between">
+<a href="index.html"><img src="img/hh.png" alt></a>
+<div class="sidebar_close_icon d-lg-none">
+<i class="ti-close"></i>
+</div>
+</div>
+<ul id="sidebar_menu">
+<li class="side_menu_title">
+<span>Admins Side</span>
+</li>
+<li class="mm-active">
+<a class="has-arrow" href="#" aria-expanded="false">
+
+<img src="img/menu-icon/1.svg" alt>
+<span>Users</span>
+</a>
+<ul>
+<li><a class="active" href="statusers.php">User Stats</a></li>
+<li><a href="listusers.php">User list</a></li>
+</ul>
+</li>
+
+<li class>
+<a class="has-arrow" href="#" aria-expanded="false">
+<img src="img/menu-icon/2.svg" alt>
+<span>Events</span>
+</a>
+<ul>
+<li><a href="listevent.php">Events List</a></li>
+<li><a href="participants.php">Participant List</a></li>
+</ul>
+</li>
+<li class>
+<a class="has-arrow" href="#" aria-expanded="false">
+<img src="img/menu-icon/3.svg" alt>
+<span>Reclamation</span>
+</a>
+<ul>
+<li><a href="listcomplaints.php">Complaints</a></li>
+<li><a href="listerepo.php">Answers</a></li>
+</ul>
+</li>
+<li class>
+<a class="has-arrow" href="#" aria-expanded="false">
+<img src="img/menu-icon/4.svg" alt>
+<span>Products</span>
+</a>
+<ul>
+<li><a href="listProduit.php">Product List</a></li>
+<li><a href="listCategorie.php">Category List</a></li>
+<li><a href="stat.php">Statistics</a></li>
+<li><a href="addCategorie.php">Add Category</a></li>
+<li><a href="addProduit.php">Add Product</a></li>
+</li>
+
+
+<li class>
+<a class="has-arrow" href="#" aria-expanded="false">
+<img src="img/menu-icon/5.svg" alt>
+<span>Basket Of Products</span>
+</a>
+<li><a href="afficherCom.php">Commands</a>
+
+<ul>
+
+
+
+</nav>
+
+
+<section class="main_content dashboard_part">
+
+<div class="container-fluid g-0">
+<div class="row">
+<div class="col-lg-12 p-0">
+<div class="header_iner d-flex justify-content-between align-items-center">
+<div class="sidebar_icon d-lg-none">
+<i class="ti-menu"></i>
+</div>
+<div class="serach_field-area">
+<div class="search_inner">
+<form action="#">
+<div class="search_field">
+<input type="text" placeholder="Search here...">
+</div>
+<button type="submit"> <img src="img/icon/icon_search.svg" alt> </button>
+</form>
+</div>
+</div>
+<div class="header_right d-flex justify-content-between align-items-center">
+<div class="header_notification_warp d-flex align-items-center">
+<li>
+<a href="#"> <img src="img/icon/bell.svg" alt> </a>
+</li>
+<li>
+<a href="#"> <img src="img/icon/msg.svg" alt> </a>
+</li>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="main_content_iner ">
+<div class="container-fluid p-0">
+<div class="row justify-content-center">
+<div class="col-lg-12">
+<div class="single_element">
+<div class="quick_activity">
+<div class="row">
+<div class="col-12">
+<div class="quick_activity_wrap">
+<div class="single_quick_activity d-flex">
+<div class="icon">
+<img src="img/icon/man.svg" alt>
+</div>
+<div class="count_content">
+    <!-- Display the dynamic count using PHP -->
+    <h3><span class="counter"><?php echo $crudComplaint->countreclam(); ?></span></h3>
+    <p>Complaints</p>
+</div>
+</div>
+<div class="single_quick_activity d-flex">
+<div class="icon">
+<img src="img/icon/wheel.svg" alt>
+</div>
+<div class="count_content">
+    <!-- Display the dynamic count using PHP -->
+    <h3><span class="counter"><?php echo $crudComplaint->countrep(); ?></span></h3>
+    <p>Reponses</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- //user feedback  -->
+
+<style>
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    appearance: none;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+html{
+    font-size: 12px;
+}
+body{
+    background: lightcyan;
+    font-family: 'Poppins',sans-serif;
+    min-height: 100vh;
+    
+}
+img{
+    width: 100%;
+}
+H1{
+    font-size: 2.2rem;
+}
+h2{
+    font-size: 1.5rem;
+}
+h3{
+    font-size: 1.2rem;
+}
+
+p{
+    font-size: 0.86rem;
+    color: darkgray;
+}
+small{
+    font-weight: 300;
+    font-size: 0.77;
+}
+ 
+/* ******************canvas */
+
+canvas#chart{
+    background-color: white;
+    max-width: 100%;
+    margin-top: 2rem;
+    border-radius: 22px;
+}
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+<canvas id="chart">
+
+</canvas>
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+<script src="js/jquery1-3.4.1.min.js"></script>
+
+<script src="js/popper1.min.js"></script>
+
+<script src="js/bootstrap1.min.js"></script>
+
+<script src="js/metisMenu.js"></script>
+
+<script src="vendors/count_up/jquery.waypoints.min.js"></script>
+
+<script src="vendors/chartlist/Chart.min.js"></script>
+
+<script src="vendors/count_up/jquery.counterup.min.js"></script>
+
+<script src="vendors/swiper_slider/js/swiper.min.js"></script>
+
+<script src="vendors/niceselect/js/jquery.nice-select.min.js"></script>
+
+<script src="vendors/owl_carousel/js/owl.carousel.min.js"></script>
+
+<script src="vendors/gijgo/gijgo.min.js"></script>
+
+<script src="vendors/datatable/js/jquery.dataTables.min.js"></script>
+<script src="vendors/datatable/js/dataTables.responsive.min.js"></script>
+<script src="vendors/datatable/js/dataTables.buttons.min.js"></script>
+<script src="vendors/datatable/js/buttons.flash.min.js"></script>
+<script src="vendors/datatable/js/jszip.min.js"></script>
+<script src="vendors/datatable/js/pdfmake.min.js"></script>
+<script src="vendors/datatable/js/vfs_fonts.js"></script>
+<script src="vendors/datatable/js/buttons.html5.min.js"></script>
+<script src="vendors/datatable/js/buttons.print.min.js"></script>
+<script src="js/chart.min.js"></script>
+
+<script src="vendors/progressbar/jquery.barfiller.js"></script>
+
+<script src="vendors/tagsinput/tagsinput.js"></script>
+
+<script src="vendors/text_editor/summernote-bs4.js"></script>
+<script src="vendors/apex_chart/apexcharts.js"></script>
+
+<script src="js/custom.js"></script>
+<script src="vendors/apex_chart/bar_active_1.js"></script>
+<script src="vendors/apex_chart/apex_chart_list.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- <script src =main.js></script> -->
+<!-- Add this script before your closing </body> tag -->
+<script>
+  // Get the context of the canvas element
+  const chartCanvas = document.getElementById('chart').getContext('2d');
+
+  // Create a new chart instance
+  const myChart = new Chart(chartCanvas, {
+    type: 'line',
+    data: {
+      labels: ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      datasets: [
+        {
+          label: 'Negative Feedback',
+          data: [10, 35, 44, 60, 75, 82, 80, 78, 66, 30],
+          backgroundColor: '#e33731',
+          borderColor: '#e33731',
+          borderWidth: 2,
+        },
+        {
+          label: 'Positive Feedback',
+          data: [40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140], // Adjusted for emphasis
+          borderColor: '#18d17b',
+          backgroundColor:'#18d17b',
+
+          borderWidth: 2,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+    },
+  });
+</script>
+
+</body>
+
+<!-- Mirrored from demo.dashboardpack.com/hospital-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Nov 2023 13:38:43 GMT -->
+</html>

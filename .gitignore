@@ -1,0 +1,44 @@
+# Environment variables
+.env
+.env.*
+
+# System files
+.DS_Store
+.DS_Store?
+
+# IDE
+.idea/
+.vscode/
+
+# Temporary files
+*.log
+*.tmp
+
+# Dependencies
+vendor/
+node_modules/
+
+# Local database backups
+*.sql
+*.sql.zip
+# QR code generated cache
+phpqrcode/cache/*
+!phpqrcode/cache/.gitkeep
+
+# Temporary files
+*.log
+.DS_Store
+
+# Local configuration
+.env
+.env.*
+sms/test.php
+sms/twilio/test.php
+View/send.php
+sms/test.php
+sms/twilio/test.php
+View/send.php
+Controller/send.php
+Controller/ParticipantsC.php
+Controller/userC.php
+Controller/rendezvousC.php
